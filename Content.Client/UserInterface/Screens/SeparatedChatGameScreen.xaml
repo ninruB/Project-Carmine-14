@@ -17,26 +17,41 @@
     VerticalExpand="False"
     VerticalAlignment="Bottom"
     HorizontalAlignment="Center">
-    <controls:RecordedSplitContainer Name="ScreenContainer" HorizontalExpand="True" VerticalExpand="True" SplitWidth="0" StretchDirection="TopLeft">
-        <LayoutContainer Name="ViewportContainer" HorizontalExpand="True" VerticalExpand="True">
-            <controls:MainViewport Name="MainViewport" Margin="300 0 0 0"/>
-            <widgets:GhostGui Name="Ghost" Access="Protected" />
-            <inventory:InventoryGui Name="Inventory" Access="Protected"/>
-            <hotbar:HotbarGui Name="Hotbar" Access="Protected" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 0 0 200"/>
-            <!-- WD EDIT START -->
-            <BoxContainer Name="BottomLeft" Access="Protected" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                <combatMode:CombatModeGui Name="CombatMode" Access="Protected"/>
-                <targeting:TargetingControl Name="Targeting" Access="Protected"/>
+
+    <SplitContainer
+        Name="LeftContainer"
+        HorizontalExpand="True"
+        VerticalExpand="True"
+        SplitWidth="0"
+        StretchDirection="TopLeft"
+        ResizeMode="NotResizable"
+    >
+            <BoxContainer Name="Gargoyle" MinSize="300 1080" Orientation="Vertical" VerticalExpand="True">
+                <actions:ActionsBar Name="Actions" HorizontalAlignment="Right"/>
+                <!-- <alerts:AlertsUI Name="Alerts" Access="Protected"/> -->
+                <!-- <partStatus:PartStatusControl Name="PartStatus" Access="Protected"/> -->
+                <!-- <inventory:InventoryGui Name="Inventory" Access="Protected"/> -->
+                <!-- <hotbar:HotbarGui Name="Hotbar" Access="Protected"/> -->
+                <!-- <combatMode:CombatModeGui Name="CombatMode" Access="Protected"/> -->
+                <!-- <targeting:TargetingControl Name="Targeting" Access="Protected"/> -->
             </BoxContainer>
-            <!-- WD EDIT END -->
-            <BoxContainer Name="TopLeftContainer" Orientation="Horizontal">
-                <alerts:AlertsUI Name="Alerts" Access="Protected" Orientation="Horizontal" HorizontalAlignment="Left"/>
-                <actions:ActionsBar Name="Actions" Access="Protected"/>
-                <partStatus:PartStatusControl Name="PartStatus" Access="Protected" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-130 255 0 0" />
-                <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical"/>
-            </BoxContainer>
-        </LayoutContainer>
-        <PanelContainer HorizontalExpand="True" MinWidth="300" StyleClasses="ChatMainPanel">
+
+        <SplitContainer
+            Name="RightContainer"
+            HorizontalExpand="True"
+            VerticalExpand="True"
+            SplitWidth="0"
+            StretchDirection="TopLeft"
+            ResizeMode="NotResizable"
+        >
+            <LayoutContainer Name="ViewportContainer" HorizontalExpand="True" VerticalExpand="True">
+                <controls:MainViewport Name="MainViewport"/>
+                <widgets:GhostGui Name="Ghost" HorizontalAlignment="Center" VerticalAlignment="Bottom" Access="Protected"/>
+                <BoxContainer Name="VoteMenu" Access="Public"/>
+            </LayoutContainer>
+
+        <!-- Chat -->
+        <PanelContainer MinSize="300 1080" HorizontalAlignment="Right" StyleClasses="ChatMainPanel">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">
                 <PanelContainer StyleClasses="TopButtonChat">
                     <menuBar:GameTopMenuBar Name="TopBar" HorizontalExpand="True" Access="Protected" />
@@ -44,5 +59,8 @@
                 <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
             </BoxContainer>
         </PanelContainer>
-    </controls:RecordedSplitContainer>
+        <!-- Chat -->
+
+        </SplitContainer>
+    </SplitContainer>
 </screens:SeparatedChatGameScreen>

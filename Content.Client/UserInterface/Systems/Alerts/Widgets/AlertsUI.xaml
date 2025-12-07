@@ -1,16 +1,12 @@
-﻿<widgets:AlertsUI xmlns="https://spacestation14.io"
-                  xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Alerts.Widgets"
-                  Orientation="Horizontal"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
-                  HorizontalExpand="True"
-                  MinSize="64 64">
+﻿<widgets:AlertsUI
+    xmlns="https://spacestation14.io"
+    xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Alerts.Widgets"
+    MinSize="64 64">
 
-    <!-- Shitmed Change Start - TODO: Refactor this godforsaken abomination -->
-    <GridContainer Rows="1" Columns="3" HorizontalAlignment="Left" VerticalAlignment="Top">
-        <PanelContainer HorizontalAlignment="Left">
-            <GridContainer Name="AlertContainer" Rows="1" Columns="3" HorizontalAlignment="Left" HorizontalExpand="True" VerticalAlignment="Top" Access="Public" />
+    <GridContainer>
+        <PanelContainer>
+            <GridContainer Name="AlertContainer" Columns="3" Access="Public"/>
         </PanelContainer>
     </GridContainer>
-    <!-- Shitmed Change End -->
+
 </widgets:AlertsUI>

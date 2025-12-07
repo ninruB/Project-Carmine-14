@@ -3,74 +3,36 @@
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Controls"
     xmlns:hands="clr-namespace:Content.Client.UserInterface.Systems.Hands.Controls"
     xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Hotbar.Widgets"
-    Name="HotbarInterface"
-    VerticalExpand="True"
-    VerticalAlignment="Bottom"
-    Orientation="Vertical"
-    HorizontalAlignment="Center">
-    <BoxContainer Orientation="Vertical">
-        <BoxContainer Name="SingleStorageContainer"
-                      Access="Public"
-                      HorizontalAlignment="Center"
-                      HorizontalExpand="True"
-                      Margin="10">
-        </BoxContainer>
-        <BoxContainer Name="DoubleStorageContainer"
-                      Access="Public"
-                      HorizontalAlignment="Stretch"
-                      HorizontalExpand="True"
-                      Margin="10">
-            <BoxContainer Name="LeftStorageContainer"
-                          Access="Public"
-                          HorizontalAlignment="Left"
-                          HorizontalExpand="True"
-                          VerticalAlignment="Bottom"
-                          Margin="10">
+    Name="HotbarInterface">
+    <Control>
+        <BoxContainer>
+            <BoxContainer Name="SingleStorageContainer"
+                          Access="Public">
             </BoxContainer>
-            <BoxContainer Name="RightStorageContainer"
-                          Access="Public"
-                          HorizontalAlignment="Right"
-                          HorizontalExpand="True"
-                          VerticalAlignment="Bottom"
-                          Margin="10">
+            <BoxContainer Name="DoubleStorageContainer"
+                          Access="Public">
+                <BoxContainer Name="LeftStorageContainer"
+                              Access="Public">
+                </BoxContainer>
+                <BoxContainer Name="RightStorageContainer"
+                              Access="Public">
+                </BoxContainer>
+            </BoxContainer>
+            <BoxContainer Name="Hotbar" Orientation="Vertical">
+                <inventory:ItemSlotButtonContainer
+                    Name="SecondHotbar"
+                    SlotGroup="SecondHotbar"/>
+                <inventory:ItemStatusPanel
+                    Name="StatusPanelRight"/>
+                <hands:HandsContainer
+                    Name="HandContainer"
+                    Access="Public"/>
+                <inventory:ItemStatusPanel
+                    Name="StatusPanelLeft"/>
+                <inventory:ItemSlotButtonContainer
+                    Name="MainHotbar"
+                    SlotGroup="MainHotbar"/>
             </BoxContainer>
         </BoxContainer>
-        <BoxContainer Orientation="Vertical" Name="Hotbar" HorizontalAlignment="Left">
-            <inventory:ItemSlotButtonContainer
-                Name="SecondHotbar"
-                SlotGroup="SecondHotbar"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right"
-                VerticalExpand="False"
-                ExpandBackwards="True"
-                Columns="3"
-                HorizontalExpand="False"/>
-            <inventory:ItemStatusPanel
-                Name="StatusPanelRight"
-                HorizontalAlignment="Center" Margin="0 0 -2 2"
-                SetWidth="125"
-                SetHeight="60"/>
-            <hands:HandsContainer
-                Name="HandContainer"
-                Access="Public"
-                HorizontalAlignment="Center"
-                HorizontalExpand="False"
-                ColumnLimit="3"/>
-            <inventory:ItemStatusPanel
-                Name="StatusPanelLeft"
-                HorizontalAlignment="Center" Margin="-2 0 0 2"
-                SetWidth="125"
-                SetHeight="60"/>
-            <inventory:ItemSlotButtonContainer
-                Name="MainHotbar"
-                SlotGroup="MainHotbar"
-                VerticalExpand="False"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                HorizontalExpand="False"
-                ExpandBackwards="True"
-                Columns="3"
-                />
-        </BoxContainer>
-    </BoxContainer>
+    </Control>
 </widgets:HotbarGui>
