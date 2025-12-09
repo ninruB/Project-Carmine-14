@@ -18,13 +18,15 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
         SetAnchorPreset(LeftContainer, LayoutPreset.Wide);
         SetAnchorPreset(ViewportContainer, LayoutPreset.Wide);
         SetAnchorPreset(MainViewport, LayoutPreset.Wide);
-        SetAnchorAndMarginPreset(Gargoyle, LayoutPreset.LeftWide);
         SetAnchorAndMarginPreset(Ghost, LayoutPreset.BottomWide, margin: 80);
-        // SetAnchorAndMarginPreset(Inventory, LayoutPreset.BottomLeft, margin: 5);
-        // SetAnchorAndMarginPreset(TopLeftContainer, LayoutPreset.TopLeft, margin: 10);
-        // SetAnchorAndMarginPreset(Hotbar, LayoutPreset.BottomWide, margin: 5);
-        // SetAnchorAndMarginPreset(Alerts, LayoutPreset.TopRight, margin: 10);
-        // SetAnchorAndMarginPreset(BottomLeft, LayoutPreset.BottomLeft, margin: 5); // WD EDIT
+
+        SetAnchorPreset(Inventory, LayoutPreset.BottomLeft);
+        SetAnchorPreset(Actions, LayoutPreset.TopRight);
+        SetAnchorPreset(Hotbar, LayoutPreset.CenterLeft);
+        SetAnchorPreset(Alerts, LayoutPreset.TopLeft);
+        SetAnchorPreset(CombatMode, LayoutPreset.BottomRight);
+        SetAnchorPreset(PartStatus, LayoutPreset.BottomRight);
+        SetAnchorPreset(Targeting, LayoutPreset.BottomLeft);
 
         LeftContainer.OnSplitResizeFinished += () =>
             OnChatResized?.Invoke(new Vector2(LeftContainer.SplitFraction, 0));

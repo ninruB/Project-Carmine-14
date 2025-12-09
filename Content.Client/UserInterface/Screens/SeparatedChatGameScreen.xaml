@@ -25,16 +25,17 @@
         SplitWidth="0"
         StretchDirection="TopLeft"
         ResizeMode="NotResizable"
+        MouseFilter="Stop"
     >
-            <BoxContainer Name="Gargoyle" MinSize="300 1080" Orientation="Vertical" VerticalExpand="True">
-                <actions:ActionsBar Name="Actions" HorizontalAlignment="Right"/>
-                <!-- <alerts:AlertsUI Name="Alerts" Access="Protected"/> -->
-                <!-- <partStatus:PartStatusControl Name="PartStatus" Access="Protected"/> -->
-                <!-- <inventory:InventoryGui Name="Inventory" Access="Protected"/> -->
-                <!-- <hotbar:HotbarGui Name="Hotbar" Access="Protected"/> -->
-                <!-- <combatMode:CombatModeGui Name="CombatMode" Access="Protected"/> -->
-                <!-- <targeting:TargetingControl Name="Targeting" Access="Protected"/> -->
-            </BoxContainer>
+            <LayoutContainer Name="Gargoyle" SetSize="300 1080">
+                <actions:ActionsBar Name="Actions" Margin="-64 0 0 32"/>
+                <alerts:AlertsUI Name="Alerts" Margin="0 0 -200 0"/>
+                <inventory:InventoryGui Name="Inventory"/>
+                <hotbar:HotbarGui Name="Hotbar"/>
+                <partStatus:PartStatusControl Name="PartStatus" Margin="-167 -478 0 0"/>
+                <combatMode:CombatModeGui Name="CombatMode" Margin="-164 -64 0 0"/>
+                <targeting:TargetingControl Name="Targeting" Margin="0 -64 -64 0"/>
+            </LayoutContainer>
 
         <SplitContainer
             Name="RightContainer"
