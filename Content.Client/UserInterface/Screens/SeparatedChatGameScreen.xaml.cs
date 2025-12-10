@@ -20,6 +20,7 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
         SetAnchorPreset(MainViewport, LayoutPreset.Wide);
         SetAnchorAndMarginPreset(Ghost, LayoutPreset.BottomWide, margin: 80);
 
+        SetAnchorPreset(Background, LayoutPreset.Wide);
         SetAnchorPreset(Inventory, LayoutPreset.BottomLeft);
         SetAnchorPreset(Actions, LayoutPreset.TopRight);
         SetAnchorPreset(Hotbar, LayoutPreset.CenterLeft);
@@ -36,7 +37,6 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
 
     public override void SetChatSize(Vector2 size)
     {
-        // ScreenContainer.DesiredSplitCenter = size.X;
-        LeftContainer.ResizeMode = SplitContainer.SplitResizeMode.RespectChildrenMinSize;
+
     }
 }

@@ -27,7 +27,8 @@
         ResizeMode="NotResizable"
         MouseFilter="Stop"
     >
-            <LayoutContainer Name="Gargoyle" SetSize="300 1080">
+            <LayoutContainer Name="Gargoyle" SetSize="300 1080" StyleClasses="ChatMainPanel">
+                <TextureRect Name="Background" TexturePath="/Textures/_Carmine/Interface/test.png" SetSize="300 1080"/>
                 <actions:ActionsBar Name="Actions" Margin="-64 0 0 32"/>
                 <alerts:AlertsUI Name="Alerts" Margin="0 0 -200 0"/>
                 <inventory:InventoryGui Name="Inventory"/>
