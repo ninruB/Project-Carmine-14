@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Taken from WWhiteDreamProject, sprited by Gavrik (@gavrik.tar.gz)",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "solid_full"
+      },
+      {
+        "name": "solid_0",
+        "directions": 4
+      },
+      {
+        "name": "solid_1",
+        "directions": 4
+      },
+      {
+        "name": "solid_2",
+        "directions": 4
+      },
+      {
+        "name": "solid_3",
+        "directions": 4
+      },
+      {
+        "name": "solid_4",
+        "directions": 4
+      },
+      {
+        "name": "solid_5",
+        "directions": 4
+      },
+      {
+        "name": "solid_6",
+        "directions": 4
+      },
+      {
+        "name": "solid_7",
+        "directions": 4
+      }
+    ]
+  }
