@@ -106,6 +106,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (weapon.Attacking)
             {
                 RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
+                weapon.index = 1;
             }
         }
 

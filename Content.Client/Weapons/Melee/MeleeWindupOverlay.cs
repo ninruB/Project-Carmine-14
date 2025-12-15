@@ -39,6 +39,9 @@ public sealed class MeleeWindupOverlay : Overlay
     {
         var owner = _player.LocalPlayer?.ControlledEntity;
 
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         if (!_entManager.TryGetComponent<TransformComponent>(owner, out var ownerXform) ||
             ownerXform.MapID != args.MapId)
         {
@@ -154,25 +157,25 @@ public sealed class MeleeWindupOverlay : Overlay
 
         string? usedState = "charge_1";
 
-        if (currentTime > comp.Snapshot + TimeSpan.FromMilliseconds(160)) //3040ms : 19
+        if (currentTime > (comp.Snapshot + TimeSpan.FromMilliseconds(160))) //3040ms : 19
         {
-            comp.index += 1;
-            usedState = ("charge_" + comp.index);
+            if (comp.index < 19 && comp.index >= 1)
+            {
+                comp.index += 1;
 
+            }
+            else
+            {
+                comp.index = 1;
+            }
+
+            usedState = ("charge_" + comp.index);
             comp.Snapshot = currentTime;
         }
 
-        if (comp.index > 19)
-        {
-            comp.index = 0;
-        }
-
-        if (_timing.IsFirstTimePredicted)
-        {
-            var usedSprite = new SpriteSpecifier.Rsi(new("/Textures/_Carmine/Attached/Player/charges.rsi"), usedState);
-            var usedTexture = _entManager.EntitySysManager.GetEntitySystem<SpriteSystem>().Frame0(usedSprite);
-            handle.DrawTexture(usedTexture, position);
-        }
+        var usedSprite = new SpriteSpecifier.Rsi(new("/Textures/_Carmine/Attached/Player/charges.rsi"), usedState);
+        var usedTexture = _entManager.EntitySysManager.GetEntitySystem<SpriteSystem>().Frame0(usedSprite);
+        handle.DrawTexture(usedTexture, position);
 
         handle.UseShader(null);
         handle.SetTransform(Matrix3x2.Identity);

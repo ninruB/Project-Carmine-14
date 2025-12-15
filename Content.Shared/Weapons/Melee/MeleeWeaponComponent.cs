@@ -17,13 +17,13 @@ public sealed partial class MeleeWeaponComponent : Component
     /// <summary>
     /// GOIDACODE
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public int index = 0;
 
     /// <summary>
     /// GOIDACODE
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan? Snapshot;
 
     [DataField, AutoNetworkedField]
